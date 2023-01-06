@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://c4pl7devtmxea"]
+
+[ext_resource type="Script" path="res://Script/Grave.gd" id="1_rxey2"]
+[ext_resource type="Texture2D" uid="uid://buld8aqabs284" path="res://Assets/grave.png" id="1_v2hs3"]
+[ext_resource type="Material" uid="uid://d00dfla4kvftv" path="res://Assets/shader/OutlineMaterial.tres" id="2_ud1yi"]
+[ext_resource type="Script" path="res://Script/UniqueMaterialSprite.gd" id="3_dsq6u"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1ntff"]
+radius = 7.0
+height = 32.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u0rxm"]
+height = 42.0
+
+[node name="Grave" type="StaticBody2D"]
+script = ExtResource("1_rxey2")
+interactAreaPath = NodePath("InteractionArea")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = ExtResource("2_ud1yi")
+texture = ExtResource("1_v2hs3")
+script = ExtResource("3_dsq6u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_1ntff")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_u0rxm")
+debug_color = Color(0.701961, 0, 0.466667, 0.419608)

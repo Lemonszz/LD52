@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://57nkee8nuxl1"]
+
+[ext_resource type="Texture2D" uid="uid://k36xvwdkihtb" path="res://Assets/light_128_short_falloff.png" id="1_bvso6"]
+[ext_resource type="Script" path="res://Script/DetectableLight.gd" id="2_hoj2f"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_txmbd"]
+
+[node name="CircleLight" type="PointLight2D"]
+blend_mode = 2
+texture = ExtResource("1_bvso6")
+script = ExtResource("2_hoj2f")
+collisionShape = NodePath("Area2D/CollisionShape2D")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_txmbd")
+one_way_collision_margin = 2.0
+debug_color = Color(0, 0.701961, 0.168627, 0.419608)
+
+[connection signal="body_entered" from="Area2D" to="." method="playerEntered"]
+[connection signal="body_exited" from="Area2D" to="." method="playedExited"]
