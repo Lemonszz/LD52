@@ -1,10 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://c4pl7devtmxea"]
+[gd_scene load_steps=8 format=3 uid="uid://c4pl7devtmxea"]
 
 [ext_resource type="Script" path="res://Script/Grave.gd" id="1_rxey2"]
 [ext_resource type="Texture2D" uid="uid://buld8aqabs284" path="res://Assets/grave.png" id="1_v2hs3"]
 [ext_resource type="Material" uid="uid://d00dfla4kvftv" path="res://Assets/shader/OutlineMaterial.tres" id="2_ud1yi"]
 [ext_resource type="Script" path="res://Script/UniqueMaterialSprite.gd" id="3_dsq6u"]
-[ext_resource type="Texture2D" uid="uid://d0u8yrx3pe0df" path="res://Assets/dirt_particle.png" id="5_7jdcq"]
+[ext_resource type="PackedScene" uid="uid://8uetl75pcexb" path="res://Scene/ParticlesGrave.tscn" id="5_l1kun"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1ntff"]
 radius = 7.0
@@ -12,37 +12,6 @@ height = 32.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u0rxm"]
 height = 42.0
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4d6iw"]
-particles_animation = true
-particles_anim_h_frames = 5
-particles_anim_v_frames = 5
-particles_anim_loop = false
-
-[sub_resource type="Curve" id="Curve_d4h65"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.866071, 0.836364), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.41818, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_c22qr"]
-width = 32
-curve = SubResource("Curve_d4h65")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_73hp3"]
-emission_shape = 1
-emission_sphere_radius = 10.0
-particle_flag_disable_z = true
-direction = Vector3(0, -1, 0)
-spread = 90.0
-flatness = 1.0
-gravity = Vector3(0, 24, 0)
-initial_velocity_min = 5.0
-initial_velocity_max = 20.0
-orbit_velocity_min = 0.0
-orbit_velocity_max = 0.0
-angle_min = -90.0
-angle_max = 90.0
-scale_curve = SubResource("CurveTexture_c22qr")
-anim_offset_max = 1.0
 
 [node name="Grave" type="StaticBody2D"]
 script = ExtResource("1_rxey2")
@@ -68,9 +37,4 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_u0rxm")
 debug_color = Color(0.701961, 0, 0.466667, 0.419608)
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-material = SubResource("CanvasItemMaterial_4d6iw")
-emitting = false
-amount = 16
-process_material = SubResource("ParticleProcessMaterial_73hp3")
-texture = ExtResource("5_7jdcq")
+[node name="GPUParticles2D" parent="." instance=ExtResource("5_l1kun")]

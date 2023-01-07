@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://8uetl75pcexb"]
+
+[ext_resource type="Texture2D" uid="uid://d0u8yrx3pe0df" path="res://Assets/dirt_particle.png" id="1_uarc6"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4d6iw"]
+particles_animation = true
+particles_anim_h_frames = 5
+particles_anim_v_frames = 5
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_d4h65"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.866071, 0.836364), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.41818, 0.0, 0, 0]
+point_count = 3
+
+[node name="GPUParticles2D" type="CPUParticles2D"]
+material = SubResource("CanvasItemMaterial_4d6iw")
+emitting = false
+amount = 16
+fixed_fps = 30
+draw_order = 1
+texture = ExtResource("1_uarc6")
+emission_shape = 1
+emission_sphere_radius = 10.0
+direction = Vector2(0, -1)
+spread = 90.0
+gravity = Vector2(0, 24)
+initial_velocity_min = 5.0
+initial_velocity_max = 20.0
+angle_min = -90.0
+angle_max = 90.0
+scale_amount_curve = SubResource("Curve_d4h65")
+anim_offset_max = 1.0
