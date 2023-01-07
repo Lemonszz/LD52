@@ -4,6 +4,8 @@ var ACTIVE_LIGHTS := [];
 var ACTIVE_INTERACTABLES := [];
 
 var UI : UI;
+var OBJECTS : Node2D;
+var PLAYER : Player;
 
 func getClosestInteractable(player : Player) -> StaticBody2D:
 	var closest = null;

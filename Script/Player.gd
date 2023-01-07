@@ -4,7 +4,8 @@ class_name Player
 enum State{
 	IDLE,
 	WALK,
-	DIG
+	DIG,
+	DEAD
 }
 
 enum Direction{
@@ -14,7 +15,7 @@ enum Direction{
 	RIGHT
 }
 
-const state_names := ["idle", "walk", "dig"];
+const state_names := ["idle", "walk", "dig", "dead"];
 const dir_names := ["up", "down", "left", "right"];
 
 @export var speed := 100.0;
@@ -24,11 +25,14 @@ const dir_names := ["up", "down", "left", "right"];
 var state := State.IDLE;
 var direction := Direction.DOWN;
 var lightTime := 0.0;
-
+var organCount := 0;
 
 @onready var interactCast  := $InteractCast;
 @onready var lightCast  := $LightCast;
 @onready var sprite := $AnimatedSprite2D;
+
+func _ready() -> void:
+	Global.PLAYER = self;
 
 func get_movement_input():
 	var inputDir := Input.get_vector("move_left", "move_right", "move_up", "move_down");
@@ -57,6 +61,7 @@ func _physics_process(delta: float) -> void:
 func updateUI():
 	Global.UI.lightProgress.max_value = maxLightTime;
 	Global.UI.lightProgress.value = lightTime;
+	Global.UI.organCount.text = "Organ Count: " + str(organCount);
 
 func _process(delta: float):
 	updateAnimation()
@@ -85,6 +90,9 @@ func listenForMovement():
 	move_and_slide();
 	
 func updateLightDetection(delta : float):
+	if(state == State.DEAD):
+		return;
+	
 	if(Global.isInLight(self)):
 		lightTime += delta;
 	else:
@@ -95,7 +103,7 @@ func updateLightDetection(delta : float):
 		gameOver();
 		
 func gameOver():
-	queue_free();
+	state = State.DEAD
 
 func listenForInteraction():
 	if(Input.is_action_just_released("interact")):
@@ -117,6 +125,10 @@ func canSeeLight(light : Node2D) -> bool:
 	return lightCast.get_collider() == null;
 	
 func updateAnimation():
+	if(state == State.DEAD):
+		sprite.visible = false;
+		return;
+	
 	var anim = state_names[state] + "_" + dir_names[direction];
 	if(sprite.animation != anim):
 		sprite.animation = anim;

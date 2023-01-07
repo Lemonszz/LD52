@@ -2,6 +2,8 @@ extends StaticBody2D
 
 var inProgressTexture = preload("res://Assets/grave_digging.png");
 var doneTexture = preload("res://Assets/grave_dug.png");
+var organScene = preload("res://Scene/organ.tscn");
+
 
 @export_node_path(Area2D) var interactAreaPath;
 var interactArea : Area2D;
@@ -27,17 +29,31 @@ func _process(delta: float) -> void:
 				Global.ACTIVE_INTERACTABLES.append(self);
 		else:
 			eraseSelf();
-			
+	
+	if(digging && player.state == Player.State.DEAD):
+		interuptDigging();
+	
 	if(digging):
+		$GPUParticles2D.emitting = true;
 		digProgress += player.digSpeed;
 		if(digProgress >= 1.0):
 			finishDigging();
+	else:
+		$GPUParticles2D.emitting = false;
 
 func finishDigging():
 	digging = false;
 	player.state = Player.State.IDLE;
 	digProgress = 1.0;
 	sprite.texture = doneTexture;
+	
+	for i in range(2, 4):
+		var organ = organScene.instantiate();
+		organ.position = position;
+		Global.OBJECTS.add_child(organ);
+
+func interuptDigging():
+	digging = false;
 
 func eraseSelf():
 	if(Global.ACTIVE_INTERACTABLES.has(self)):
@@ -45,7 +61,7 @@ func eraseSelf():
 
 func doInteraction(doEffects = true):
 	if(digging):
-		digging = false;
+		interuptDigging();
 		player.state = Player.State.IDLE;
 	else:
 		digging = true;
