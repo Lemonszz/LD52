@@ -13,9 +13,15 @@ _global_script_classes=[{
 "class": &"Player",
 "language": &"GDScript",
 "path": "res://Script/Player.gd"
+}, {
+"base": "CanvasLayer",
+"class": &"UI",
+"language": &"GDScript",
+"path": "res://Scene/UI.gd"
 }]
 _global_script_class_icons={
-"Player": ""
+"Player": "",
+"UI": ""
 }
 
 [application]
@@ -28,6 +34,10 @@ config/icon="res://icon.svg"
 [autoload]
 
 Global="*res://Script/Global.gd"
+
+[display]
+
+window/stretch/mode="canvas_items"
 
 [input]
 

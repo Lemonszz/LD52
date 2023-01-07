@@ -5,7 +5,9 @@
 
 [node name="FlashLight" type="PointLight2D"]
 blend_mode = 2
+shadow_enabled = true
 texture = ExtResource("1_r6m3v")
+offset = Vector2(64, 0)
 script = ExtResource("2_a7ehi")
 collisionShape = NodePath("Area2D/CollisionPolygon2D")
 adjustCircle = false
@@ -15,6 +17,7 @@ collision_layer = 64
 collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2(64, 0)
 polygon = PackedVector2Array(-64, -3, 57, -63, 57, 63, -64, 2)
 
 [connection signal="body_entered" from="Area2D" to="." method="playerEntered"]

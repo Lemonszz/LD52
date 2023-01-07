@@ -19,11 +19,16 @@ const dir_names := ["up", "down", "left", "right"];
 
 @export var speed := 100.0;
 @export var digSpeed := 0.025;
+@export var maxLightTime = 1.5;
+
 var state := State.IDLE;
 var direction := Direction.DOWN;
+var lightTime := 0.0;
+
 
 @onready var interactCast  := $InteractCast;
 @onready var lightCast  := $LightCast;
+@onready var sprite := $AnimatedSprite2D;
 
 func get_movement_input():
 	var inputDir := Input.get_vector("move_left", "move_right", "move_up", "move_down");
@@ -48,7 +53,16 @@ func _physics_process(delta: float) -> void:
 			handleWalk();
 		State.DIG:
 			handleDig();
-			
+
+func updateUI():
+	Global.UI.lightProgress.max_value = maxLightTime;
+	Global.UI.lightProgress.value = lightTime;
+
+func _process(delta: float):
+	updateAnimation()
+	updateLightDetection(delta);
+	updateUI();
+
 func handleIdle():
 	listenForMovement();
 	
@@ -60,7 +74,7 @@ func handleWalk():
 	listenForMovement();
 	
 	if(velocity.length() == 0):
-		state = State.WALK;
+		state = State.IDLE;
 	listenForInteraction();
 	
 func handleDig():
@@ -69,6 +83,19 @@ func handleDig():
 func listenForMovement():
 	get_movement_input();
 	move_and_slide();
+	
+func updateLightDetection(delta : float):
+	if(Global.isInLight(self)):
+		lightTime += delta;
+	else:
+		lightTime -= 2.0 * delta;
+		
+	lightTime = max(0, lightTime);
+	if(lightTime >= maxLightTime):
+		gameOver();
+		
+func gameOver():
+	queue_free();
 
 func listenForInteraction():
 	if(Input.is_action_just_released("interact")):
@@ -88,3 +115,9 @@ func canSeeLight(light : Node2D) -> bool:
 	lightCast.target_position = to_local(light.global_position);
 	lightCast.force_raycast_update();
 	return lightCast.get_collider() == null;
+	
+func updateAnimation():
+	var anim = state_names[state] + "_" + dir_names[direction];
+	if(sprite.animation != anim):
+		sprite.animation = anim;
+	

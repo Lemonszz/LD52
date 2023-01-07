@@ -34,15 +34,15 @@ func eraseSelf():
 		Global.ACTIVE_LIGHTS.erase(self);
 
 func playerEntered(body):
-	inArea = true;
-	player = body;
-	pass;
+	if(body is Player):
+		inArea = true;
+		player = body;
 	
 func playedExited(body):
-	inArea = false;
-	player = null;
-	eraseSelf();
-	pass;
+	if(body is Player):
+		inArea = false;
+		player = null;
+		eraseSelf();
 
 func set_active(active : bool, doEffects = true):
 	enabled = !active if inverted else active;

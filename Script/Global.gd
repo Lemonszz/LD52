@@ -3,6 +3,8 @@ extends Node
 var ACTIVE_LIGHTS := [];
 var ACTIVE_INTERACTABLES := [];
 
+var UI : UI;
+
 func getClosestInteractable(player : Player) -> StaticBody2D:
 	var closest = null;
 	var closestDist = 999999;

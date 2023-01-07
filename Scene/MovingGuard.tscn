@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvy6c6bsjnj7d"]
+
+[ext_resource type="Script" path="res://Script/FollowPath.gd" id="1_eb0kw"]
+[ext_resource type="PackedScene" uid="uid://rghfmmgc3jec" path="res://Scene/Guard.tscn" id="2_40op7"]
+
+[sub_resource type="Curve2D" id="Curve2D_ls8do"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 134, 53, 0, 0, 0, 0, 137, -76, 0, 0, 0, 0, 0, -76, 0, 0, 0, 0, 0, 53, 0, 0, 0, 0, 134, 53)
+}
+point_count = 5
+
+[node name="MovingGuard" type="Path2D"]
+curve = SubResource("Curve2D_ls8do")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(134, 53)
+rotation = -1.54754
+lookahead = 75.0
+script = ExtResource("1_eb0kw")
+speed = 25
+
+[node name="Guard" parent="PathFollow2D" instance=ExtResource("2_40op7")]
