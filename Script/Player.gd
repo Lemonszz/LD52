@@ -59,6 +59,10 @@ func updateUI():
 	Global.UI.organCount.text = "Organ Count: " + str(Global.organs);
 
 func _process(delta: float):
+	#if(Input.is_action_just_released("debug")):
+		#get_tree().change_scene_to_packed(load("res://Scene/shop.tscn"))
+	
+	
 	updateAnimation()
 	updateLightDetection(delta);
 	updateUI();
@@ -99,6 +103,7 @@ func updateLightDetection(delta : float):
 		
 func gameOver():
 	state = State.DEAD
+	Global.UI.showGameOver();
 
 func listenForInteraction():
 	if(Input.is_action_just_released("interact")):

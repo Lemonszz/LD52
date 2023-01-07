@@ -12,3 +12,12 @@ func _ready() -> void:
 	organCount = $HBoxContainer/OrganCount
 	
 	pass # Replace with function body.
+
+
+func showGameOver():
+	$TryAgain.visible = true;
+
+
+func _on_restart_button_pressed() -> void:
+	Global.restartLevel();
+	pass # Replace with function body.

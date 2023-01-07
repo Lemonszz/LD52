@@ -23,6 +23,7 @@ var luck := 1.0;
 var luckUpgradeCount = 0;
 
 var organs := 0;
+var levelStartOrgans := organs;
 
 func getClosestInteractable(player : Player) -> StaticBody2D:
 	var closest = null;
@@ -41,3 +42,10 @@ func isInLight(player : Player) -> bool:
 		if(li.enabled):
 			return true;
 	return false;
+	
+func restartLevel():
+	levelStartOrgans *= 0.85;
+	organs = levelStartOrgans; 
+	
+	get_tree().reload_current_scene()
+	pass;

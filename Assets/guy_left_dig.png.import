@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3tmsf4timyg6"
-path="res://.godot/imported/guy_front_dig.png-35e4ba8df3c6a01216ade88b17332f48.ctex"
+uid="uid://go5gd6uwlmss"
+path="res://.godot/imported/guy_left_dig.png-a30f9268f95b9aa4ac42ed0ef62dcb59.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/guy_front_dig.png"
-dest_files=["res://.godot/imported/guy_front_dig.png-35e4ba8df3c6a01216ade88b17332f48.ctex"]
+source_file="res://Assets/guy_left_dig.png"
+dest_files=["res://.godot/imported/guy_left_dig.png-a30f9268f95b9aa4ac42ed0ef62dcb59.ctex"]
 
 [params]
 

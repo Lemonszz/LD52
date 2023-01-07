@@ -14,35 +14,37 @@ func _ready() -> void:
 	updateCosts();
 
 func _process(delta: float) -> void:
+
 	pass
 
 func _on_dig_button_pressed() -> void:
 	if(Global.organs >= getDigCost()):
-		Global.digUpgradeCount += 1;
-		Global.digSpeed += 0.005;
 		Global.organs -= getDigCost();
+		Global.digUpgradeCount += 1;
+		Global.digSpeed += 0.0025;
 		
 		updateCosts();
 	
 func _on_speed_button_pressed() -> void:
+
 	if(Global.organs >= getMoveCost()):
+		Global.organs -= getMoveCost();
 		Global.speedUpgradeCount += 1;
 		Global.speed += 25;
-		Global.organs -= getMoveCost();
 		updateCosts();
 
 func _on_detection_button_pressed() -> void:
 	if(Global.organs >= getDetectCost()):
+		Global.organs -= getDetectCost();
 		Global.detectUpgradeCount += 1;
 		Global.maxLightTime += 0.25;
-		Global.organs -= getDetectCost();
 		updateCosts();
 		
 func _on_luck_button_pressed() -> void:
 	if(Global.organs >= getLuckCost()):
+		Global.organs -= getLuckCost();
 		Global.luckUpgradeCount += 1;
 		Global.luck += 1;
-		Global.organs -= getLuckCost();
 		updateCosts();
 
 func updateCosts():
@@ -55,13 +57,18 @@ func updateCosts():
 
 
 func getDigCost():
-	return 2 + (Global.digUpgradeCount * 2);
+	return 2 + ((Global.digUpgradeCount * Global.digUpgradeCount) * 2);
 
 func getMoveCost():
-	return 2 + (Global.speedUpgradeCount * 2);
+	return 2 + ((Global.speedUpgradeCount * Global.speedUpgradeCount) * 2);
 
 func getDetectCost():
-	return 2 + (Global.detectUpgradeCount * 2);
+	return 2 + ((Global.detectUpgradeCount * Global.detectUpgradeCount) * 2);
 	
 func getLuckCost():
-	return 5 + (Global.luckUpgradeCount * 3);
+	return 5 + ((Global.luckUpgradeCount * Global.luckUpgradeCount) * 3);
+
+
+func _on_continue_button_pressed() -> void:
+	Global.levelStartOrgans = Global.organs 
+	get_tree().change_scene_to_packed(load("res://Scene/LevelTest.tscn"))
