@@ -5,7 +5,7 @@
 
 [sub_resource type="Curve2D" id="Curve2D_ls8do"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 134, 53, 0, 0, 0, 0, 137, -76, 0, 0, 0, 0, 0, -76, 0, 0, 0, 0, 0, 53, 0, 0, 0, 0, 134, 53)
+"points": PackedVector2Array(0, 0, 0, 0, 480, 176, 0, 0, 0, 0, 480, -64, 0, 0, 0, 0, -48, -64, 0, 0, 0, 0, -48, 176, 0, 0, 0, 0, 480, 176)
 }
 point_count = 5
 
@@ -13,10 +13,11 @@ point_count = 5
 curve = SubResource("Curve2D_ls8do")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
-position = Vector2(134, 53)
-rotation = -1.54754
+position = Vector2(480, 176)
+rotation = -1.5708
 lookahead = 75.0
 script = ExtResource("1_eb0kw")
 speed = 25
 
 [node name="Guard" parent="PathFollow2D" instance=ExtResource("2_40op7")]
+visible = false

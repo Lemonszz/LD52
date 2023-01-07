@@ -52,3 +52,7 @@ position = Vector2(0, 6)
 shape = SubResource("CapsuleShape2D_djge3")
 
 [node name="FlashLight" parent="." instance=ExtResource("2_vtqxg")]
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(31.5, -1.5)
+scale = Vector2(4.55, 2.55)

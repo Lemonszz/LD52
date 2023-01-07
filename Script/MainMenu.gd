@@ -7,7 +7,7 @@ func _ready() -> void:
 		$PanelContainer/VBoxContainer/Quit.queue_free();
 
 func _on_play_pressed() -> void:
-	get_tree().change_scene_to_packed(load("res://Scene/LevelTest.tscn"))
+	Global.nextLevel();
 
 
 func _on_game_sounds_pressed() -> void:

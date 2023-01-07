@@ -49,9 +49,9 @@ func finishDigging():
 	sprite.texture = doneTexture;
 	
 	var min = 1.0;
-	var max = 2.0 + Global.luck;
+	var max = 2 + Global.luck;
 	
-	for i in range(min, max):
+	for i in range(randf_range(min, max)):
 		var organ = organScene.instantiate();
 		organ.position = position;
 		Global.OBJECTS.add_child(organ);

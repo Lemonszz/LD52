@@ -334,13 +334,13 @@ collision_layer = 131
 script = ExtResource("1_u81lr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(1, -16)
+position = Vector2(1, 0)
 frames = SubResource("SpriteFrames_y1l83")
 animation = &"idle_down"
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -10)
+position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_djge3")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -348,10 +348,8 @@ current = true
 zoom = Vector2(2.45, 2.45)
 
 [node name="InteractCast" type="RayCast2D" parent="."]
-position = Vector2(1, -14)
 collide_with_areas = true
 
 [node name="LightCast" type="RayCast2D" parent="."]
-position = Vector2(1, -14)
 collision_mask = 32
 collide_with_areas = true

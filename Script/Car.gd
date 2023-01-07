@@ -4,6 +4,7 @@ extends StaticBody2D
 var interactArea : Area2D;
 var inArea := false;
 var player : Player;
+var leaving = false;
 
 @onready var sprite = $Sprite2D;
 
@@ -13,6 +14,7 @@ func _ready() -> void:
 	interactArea.connect("body_exited", onExitInteractArea);
 
 func _process(delta: float) -> void:
+	
 	if(inArea):
 		var canInteract = player.canInteractWith(self);
 		sprite.material.set_shader_parameter("enabled", canInteract);
@@ -28,11 +30,13 @@ func eraseSelf():
 		Global.ACTIVE_INTERACTABLES.erase(self);
 
 func doInteraction(doEffects = true):
-	get_tree().change_scene_to_packed(load("res://Scene/shop.tscn"))
-	pass;
+	$AnimationPlayer.play("Leave");
+	leaving = true;
+	player.state = Player.State.DEAD;
+
 
 func canInteract():
-	return true;
+	return !leaving;
 
 func onEnterInteractArea(body : Node):
 	if(body is Player):
@@ -45,3 +49,6 @@ func onExitInteractArea(body : Node):
 		inArea = false;
 		player = body;
 		eraseSelf();
+
+func transition():
+	get_tree().change_scene_to_packed(load("res://Scene/shop.tscn"))

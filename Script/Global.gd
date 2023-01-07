@@ -1,5 +1,14 @@
 extends Node
 
+var levels := [
+	preload("res://Scene/Level1.tscn"),
+	preload("res://Scene/Level2.tscn")
+];
+
+var usedLevels := [
+	
+]
+
 var ACTIVE_LIGHTS := [];
 var ACTIVE_INTERACTABLES := [];
 
@@ -43,9 +52,20 @@ func isInLight(player : Player) -> bool:
 			return true;
 	return false;
 	
+func nextLevel():
+	if(levels.is_empty()):
+		levels = usedLevels;
+		usedLevels = [];
+		
+	var next = levels.pop_front();
+	usedLevels.append(next);
+	get_tree().change_scene_to_packed(next);
+		
+
 func restartLevel():
 	levelStartOrgans *= 0.85;
 	organs = levelStartOrgans; 
 	
 	get_tree().reload_current_scene()
 	pass;
+

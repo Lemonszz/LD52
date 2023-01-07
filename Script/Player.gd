@@ -56,6 +56,7 @@ func _physics_process(delta: float) -> void:
 func updateUI():
 	Global.UI.lightProgress.max_value = Global.maxLightTime;
 	Global.UI.lightProgress.value = lightTime;
+	#Global.UI.organCount.text = str(Engine.get_frames_per_second());
 	Global.UI.organCount.text = "Organ Count: " + str(Global.organs);
 
 func _process(delta: float):

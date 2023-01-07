@@ -122,6 +122,7 @@ position = Vector2(195, -28)
 shape = SubResource("RectangleShape2D_8kbci")
 
 [node name="Car" parent="Objects" instance=ExtResource("8_sjhe7")]
+position = Vector2(0, 64)
 
 [node name="Tombstone" parent="Objects" instance=ExtResource("9_bnqts")]
 position = Vector2(-88, -72)

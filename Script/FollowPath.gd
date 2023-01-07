@@ -4,5 +4,6 @@ extends PathFollow2D
 
 func _process(delta: float) -> void:
 	progress = progress + speed * delta;
+	$Guard.visible = true;
 	
 	pass

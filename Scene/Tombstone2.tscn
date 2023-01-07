@@ -6,12 +6,16 @@
 polygon = PackedVector2Array(-7, -6, -4, -8, 4, -8, 6.05486, -5.43143, 8, -3, 8, 8, -8, 8, -8, -4)
 
 [node name="Tombstone" type="StaticBody2D"]
+collision_mask = 33
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_ieyog")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
 polygon = PackedVector2Array(-8, 8, 8, 8, 8, -3, 7, -6, -7, -6, -8, -4)
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_xugwl")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]

@@ -71,4 +71,4 @@ func getLuckCost():
 
 func _on_continue_button_pressed() -> void:
 	Global.levelStartOrgans = Global.organs 
-	get_tree().change_scene_to_packed(load("res://Scene/LevelTest.tscn"))
+	Global.nextLevel();
