@@ -10,6 +10,20 @@ var UI : UI;
 var OBJECTS : Node2D;
 var PLAYER : Player;
 
+var speed := 100.0;
+var speedUpgradeCount = 0;
+
+var digSpeed := 0.0025;
+var digUpgradeCount = 0;
+
+var maxLightTime = 1.5;
+var detectUpgradeCount = 0;
+
+var luck := 1.0;
+var luckUpgradeCount = 0;
+
+var organs := 0;
+
 func getClosestInteractable(player : Player) -> StaticBody2D:
 	var closest = null;
 	var closestDist = 999999;

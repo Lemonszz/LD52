@@ -35,7 +35,8 @@ func _process(delta: float) -> void:
 	
 	if(digging):
 		$GPUParticles2D.emitting = true;
-		digProgress += player.digSpeed;
+		print(Global.digSpeed)
+		digProgress += Global.digSpeed;
 		if(digProgress >= 1.0):
 			finishDigging();
 	else:
@@ -47,7 +48,10 @@ func finishDigging():
 	digProgress = 1.0;
 	sprite.texture = doneTexture;
 	
-	for i in range(2, 4):
+	var min = 1.0;
+	var max = 2.0 + Global.luck;
+	
+	for i in range(min, max):
 		var organ = organScene.instantiate();
 		organ.position = position;
 		Global.OBJECTS.add_child(organ);

@@ -24,6 +24,6 @@ func _physics_process(delta: float) -> void:
 			
 func onTweenFinish():
 	queue_free();
-	Global.PLAYER.organCount += 1;
+	Global.organs += 1;
 	pass;	
 	

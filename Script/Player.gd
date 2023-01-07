@@ -18,14 +18,9 @@ enum Direction{
 const state_names := ["idle", "walk", "dig", "dead"];
 const dir_names := ["up", "down", "left", "right"];
 
-@export var speed := 100.0;
-@export var digSpeed := 0.025;
-@export var maxLightTime = 1.5;
-
 var state := State.IDLE;
 var direction := Direction.DOWN;
 var lightTime := 0.0;
-var organCount := 0;
 
 @onready var interactCast  := $InteractCast;
 @onready var lightCast  := $LightCast;
@@ -36,7 +31,7 @@ func _ready() -> void:
 
 func get_movement_input():
 	var inputDir := Input.get_vector("move_left", "move_right", "move_up", "move_down");
-	velocity = inputDir * speed;
+	velocity = inputDir * Global.speed;
 	updateDirection();
 	
 func updateDirection():
@@ -59,9 +54,9 @@ func _physics_process(delta: float) -> void:
 			handleDig();
 
 func updateUI():
-	Global.UI.lightProgress.max_value = maxLightTime;
+	Global.UI.lightProgress.max_value = Global.maxLightTime;
 	Global.UI.lightProgress.value = lightTime;
-	Global.UI.organCount.text = "Organ Count: " + str(organCount);
+	Global.UI.organCount.text = "Organ Count: " + str(Global.organs);
 
 func _process(delta: float):
 	updateAnimation()
@@ -99,7 +94,7 @@ func updateLightDetection(delta : float):
 		lightTime -= 2.0 * delta;
 		
 	lightTime = max(0, lightTime);
-	if(lightTime >= maxLightTime):
+	if(lightTime >= Global.maxLightTime):
 		gameOver();
 		
 func gameOver():
