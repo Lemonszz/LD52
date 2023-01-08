@@ -6,9 +6,11 @@ var inArea := false;
 var player : Player;
 var leaving = false;
 
-@onready var sprite = $Sprite2D;
+@export_node_path var spritePath = NodePath("Sprite2D");
+var sprite;
 
 func _ready() -> void:
+	sprite = get_node(spritePath);
 	interactArea = get_node(interactAreaPath);
 	interactArea.connect("body_entered", onEnterInteractArea);
 	interactArea.connect("body_exited", onExitInteractArea);
@@ -33,6 +35,7 @@ func doInteraction(doEffects = true):
 	$AnimationPlayer.play("Leave");
 	leaving = true;
 	player.state = Player.State.DEAD;
+	sprite.animation = "drive";
 
 
 func canInteract():

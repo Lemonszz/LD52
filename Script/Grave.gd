@@ -1,7 +1,7 @@
 extends StaticBody2D
 
-var inProgressTexture = preload("res://Assets/grave_digging.png");
-var doneTexture = preload("res://Assets/grave_dug.png");
+@export var inProgressTexture : Texture;
+@export var doneTexture : Texture;
 var organScene = preload("res://Scene/organ.tscn");
 
 
@@ -35,7 +35,6 @@ func _process(delta: float) -> void:
 	
 	if(digging):
 		$GPUParticles2D.emitting = true;
-		print(Global.digSpeed)
 		digProgress += Global.digSpeed;
 		if(digProgress >= 1.0):
 			finishDigging();
@@ -76,6 +75,7 @@ func canInteract():
 	return digProgress < 1.0;
 
 func onEnterInteractArea(body : Node):
+	print("Y")
 	if(body is Player):
 		inArea = true;
 		player = body;

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddoxj2g873586"
-path="res://.godot/imported/tileset.png-06023f60f54ec986b75003a8d422612f.ctex"
+uid="uid://du1h3ps58y0vk"
+path="res://.godot/imported/horizontal_grave_undug.png-09164c24e002bb1132be2617737d2198.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/tileset.png"
-dest_files=["res://.godot/imported/tileset.png-06023f60f54ec986b75003a8d422612f.ctex"]
+source_file="res://Assets/horizontal_grave_undug.png"
+dest_files=["res://.godot/imported/horizontal_grave_undug.png-09164c24e002bb1132be2617737d2198.ctex"]
 
 [params]
 

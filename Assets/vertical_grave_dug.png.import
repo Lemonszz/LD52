@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0h6u6m0v1uto"
-path="res://.godot/imported/headstone_3.png-e7792979fce9a40a3f966b1777d1c509.ctex"
+uid="uid://bmxg6qd0r1a1j"
+path="res://.godot/imported/vertical_grave_dug.png-e0e77c35d5576981b1f8067c9bc58a50.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Script/headstone_3.png"
-dest_files=["res://.godot/imported/headstone_3.png-e7792979fce9a40a3f966b1777d1c509.ctex"]
+source_file="res://Assets/vertical_grave_dug.png"
+dest_files=["res://.godot/imported/vertical_grave_dug.png-e0e77c35d5576981b1f8067c9bc58a50.ctex"]
 
 [params]
 

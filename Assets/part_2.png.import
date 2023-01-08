@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ndbawhhocnqn"
-path="res://.godot/imported/headstone_1.png-c4769c7546cfffd6ea1f0a92ff72418a.ctex"
+uid="uid://bto5hna3etbpv"
+path="res://.godot/imported/part_2.png-f60068baf337e3b0c8d844cad8ec20c5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Script/headstone_1.png"
-dest_files=["res://.godot/imported/headstone_1.png-c4769c7546cfffd6ea1f0a92ff72418a.ctex"]
+source_file="res://Assets/part_2.png"
+dest_files=["res://.godot/imported/part_2.png-f60068baf337e3b0c8d844cad8ec20c5.ctex"]
 
 [params]
 

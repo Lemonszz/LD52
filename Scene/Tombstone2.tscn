@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://c2ta2j2d5odfy"]
 
-[ext_resource type="Texture2D" uid="uid://drahwoi4tclqa" path="res://Assets/headstone_2.png" id="1_ieyog"]
+[ext_resource type="Texture2D" uid="uid://ks7e0hy3rmxw" path="res://Assets/headstone_2.png" id="1_ieyog"]
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_xugwl"]
-polygon = PackedVector2Array(-7, -6, -4, -8, 4, -8, 6.05486, -5.43143, 8, -3, 8, 8, -8, 8, -8, -4)
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_kj603"]
+polygon = PackedVector2Array(-8, -4, -5, -8, 5, -8, 8, -3, 8, 8, -8, 8)
 
 [node name="Tombstone" type="StaticBody2D"]
 collision_mask = 33
@@ -11,11 +11,10 @@ collision_mask = 33
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_ieyog")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-visible = false
-polygon = PackedVector2Array(-8, 8, 8, 8, 8, -3, 7, -6, -7, -6, -8, -4)
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-occluder = SubResource("OccluderPolygon2D_xugwl")
+occluder = SubResource("OccluderPolygon2D_kj603")
 
-[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-8, 8, 8, 8, 8, -3, 5, -8, -5, -8, -8, -4, -8, 4)

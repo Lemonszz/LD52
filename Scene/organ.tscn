@@ -1,11 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://dl7dx47ner5oa"]
+[gd_scene load_steps=8 format=3 uid="uid://dl7dx47ner5oa"]
 
-[ext_resource type="Texture2D" uid="uid://dhfywqsmilm46" path="res://Assets/organ_1.png" id="1_gp6v0"]
+[ext_resource type="Texture2D" uid="uid://cejrs5fjenism" path="res://Assets/part_4.png" id="1_50yrk"]
 [ext_resource type="Script" path="res://Scene/Organ.gd" id="2_0masi"]
-[ext_resource type="Texture2D" uid="uid://deugy6rxqfi6u" path="res://Assets/organ_2.png" id="3_brx1d"]
+[ext_resource type="Texture2D" uid="uid://hqr1oq6sflwp" path="res://Assets/part_1.png" id="3_ldy2y"]
+[ext_resource type="Texture2D" uid="uid://bto5hna3etbpv" path="res://Assets/part_2.png" id="4_uh3r8"]
+[ext_resource type="Texture2D" uid="uid://32rjb4kv121t" path="res://Assets/part_3.png" id="5_6g2eh"]
+[ext_resource type="Texture2D" uid="uid://b73oscrap2wwb" path="res://Assets/part_5.png" id="6_iwuq5"]
+[ext_resource type="Texture2D" uid="uid://be011su43kc3w" path="res://Assets/part_6.png" id="7_co2ir"]
 
 [node name="Organ" type="Sprite2D"]
 z_index = 1
-texture = ExtResource("1_gp6v0")
+texture = ExtResource("1_50yrk")
 script = ExtResource("2_0masi")
-textures = [ExtResource("1_gp6v0"), ExtResource("3_brx1d")]
+textures = [ExtResource("3_ldy2y"), ExtResource("4_uh3r8"), ExtResource("5_6g2eh"), ExtResource("1_50yrk"), ExtResource("6_iwuq5"), ExtResource("7_co2ir")]

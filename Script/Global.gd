@@ -2,7 +2,9 @@ extends Node
 
 var levels := [
 	preload("res://Scene/Level1.tscn"),
-	preload("res://Scene/Level2.tscn")
+	preload("res://Scene/Level2.tscn"),
+	preload("res://Scene/Level3.tscn"),
+	preload("res://Scene/Level4.tscn"),
 ];
 
 var usedLevels := [
@@ -46,10 +48,10 @@ func getClosestInteractable(player : Player) -> StaticBody2D:
 			
 	return closest;
 	
-func isInLight(player : Player) -> bool:
+func isInLight(player : Player):
 	for li in ACTIVE_LIGHTS:
 		if(li.enabled):
-			return true;
+			return li;
 	return false;
 	
 func nextLevel():

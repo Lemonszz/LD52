@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Scene/shop.gd" id="1_o5xma"]
 [ext_resource type="Texture2D" uid="uid://3tmsf4timyg6" path="res://Assets/guy_front_dig.png" id="1_ohog6"]
-[ext_resource type="Texture2D" uid="uid://dhfywqsmilm46" path="res://Assets/organ_1.png" id="2_xqqe5"]
 [ext_resource type="Texture2D" uid="uid://cg5de8i1yvrg8" path="res://Assets/guy_right_walk.png" id="3_6ge1x"]
+[ext_resource type="Texture2D" uid="uid://cejrs5fjenism" path="res://Assets/part_4.png" id="3_q5cce"]
 [ext_resource type="Texture2D" uid="uid://oa56vc8gasxt" path="res://Assets/guy_front_idle.png" id="4_8ebo7"]
 [ext_resource type="Texture2D" uid="uid://dacwaem6u0e4m" path="res://Assets/guy_left_idle.png" id="5_2xjlw"]
 
@@ -126,68 +126,57 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = -768.0
 offset_bottom = -432.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(3, 3)
 script = ExtResource("1_o5xma")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
 offset_left = 3.0
 offset_top = 3.0
 offset_right = 379.0
 offset_bottom = 211.0
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
-offset_right = 376.0
-offset_bottom = 208.0
+layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
-offset_left = 5.0
-offset_right = 371.0
-offset_bottom = 203.0
+layout_mode = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
-offset_right = 366.0
-offset_bottom = 25.0
+layout_mode = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/CenterContainer"]
 custom_minimum_size = Vector2(200, 25)
-offset_left = 83.0
-offset_right = 283.0
-offset_bottom = 25.0
+layout_mode = 2
 bbcode_enabled = true
 text = "[center][rainbow][shake  level=2]Shop"
 
 [node name="HFlowContainer" type="HFlowContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
-offset_top = 29.0
-offset_right = 366.0
-offset_bottom = 157.0
+layout_mode = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HFlowContainer"]
-offset_right = 109.0
-offset_bottom = 62.0
+layout_mode = 2
 tooltip_text = "Improve your digging speed"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HFlowContainer/PanelContainer"]
-offset_right = 109.0
-offset_bottom = 62.0
+layout_mode = 2
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HFlowContainer/PanelContainer/VBoxContainer"]
-offset_right = 109.0
-offset_bottom = 26.0
+layout_mode = 2
 text = "Digging Speed"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HFlowContainer/PanelContainer/VBoxContainer"]
-offset_top = 30.0
-offset_right = 109.0
-offset_bottom = 62.0
+layout_mode = 2
 
 [node name="Panel" type="Panel" parent="PanelContainer/MarginContainer/VBoxContainer/HFlowContainer/PanelContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(32, 32)
-offset_right = 32.0
-offset_bottom = 32.0
+layout_mode = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PanelContainer/MarginContainer/VBoxContainer/HFlowContainer/PanelContainer/VBoxContainer/HBoxContainer/Panel"]
 position = Vector2(16.6667, 16)
@@ -195,37 +184,28 @@ frames = SubResource("SpriteFrames_3rf51")
 playing = true
 
 [node name="DigButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HFlowContainer/PanelContainer/VBoxContainer/HBoxContainer"]
-offset_left = 36.0
-offset_right = 72.0
-offset_bottom = 32.0
+layout_mode = 2
 tooltip_text = "Improve your digging speed"
 text = "2"
-icon = ExtResource("2_xqqe5")
+icon = ExtResource("3_q5cce")
 
 [node name="PanelContainer2" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HFlowContainer"]
-offset_left = 113.0
-offset_right = 207.0
-offset_bottom = 62.0
+layout_mode = 2
 tooltip_text = "Improve your movement speed"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HFlowContainer/PanelContainer2"]
-offset_right = 94.0
-offset_bottom = 62.0
+layout_mode = 2
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HFlowContainer/PanelContainer2/VBoxContainer"]
-offset_right = 94.0
-offset_bottom = 26.0
+layout_mode = 2
 text = "Move Speed"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HFlowContainer/PanelContainer2/VBoxContainer"]
-offset_top = 30.0
-offset_right = 94.0
-offset_bottom = 62.0
+layout_mode = 2
 
 [node name="Panel" type="Panel" parent="PanelContainer/MarginContainer/VBoxContainer/HFlowContainer/PanelContainer2/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(32, 32)
-offset_right = 32.0
-offset_bottom = 32.0
+layout_mode = 2
 mouse_filter = 1
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="PanelContainer/MarginContainer/VBoxContainer/HFlowContainer/PanelContainer2/VBoxContainer/HBoxContainer/Panel"]
@@ -234,37 +214,28 @@ frames = SubResource("SpriteFrames_okqnp")
 playing = true
 
 [node name="SpeedButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HFlowContainer/PanelContainer2/VBoxContainer/HBoxContainer"]
-offset_left = 36.0
-offset_right = 72.0
-offset_bottom = 32.0
+layout_mode = 2
 tooltip_text = "Improve your movement speed"
 text = "2"
-icon = ExtResource("2_xqqe5")
+icon = ExtResource("3_q5cce")
 
 [node name="PanelContainer3" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HFlowContainer"]
-offset_left = 211.0
-offset_right = 329.0
-offset_bottom = 62.0
+layout_mode = 2
 tooltip_text = "Improve your detection time"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HFlowContainer/PanelContainer3"]
-offset_right = 118.0
-offset_bottom = 62.0
+layout_mode = 2
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HFlowContainer/PanelContainer3/VBoxContainer"]
-offset_right = 118.0
-offset_bottom = 26.0
+layout_mode = 2
 text = "Detection Time"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HFlowContainer/PanelContainer3/VBoxContainer"]
-offset_top = 30.0
-offset_right = 118.0
-offset_bottom = 62.0
+layout_mode = 2
 
 [node name="Panel" type="Panel" parent="PanelContainer/MarginContainer/VBoxContainer/HFlowContainer/PanelContainer3/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(32, 32)
-offset_right = 32.0
-offset_bottom = 32.0
+layout_mode = 2
 
 [node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="PanelContainer/MarginContainer/VBoxContainer/HFlowContainer/PanelContainer3/VBoxContainer/HBoxContainer/Panel"]
 position = Vector2(16, 14.3333)
@@ -272,37 +243,28 @@ frames = SubResource("SpriteFrames_wldc4")
 playing = true
 
 [node name="DetectionButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HFlowContainer/PanelContainer3/VBoxContainer/HBoxContainer"]
-offset_left = 36.0
-offset_right = 72.0
-offset_bottom = 32.0
+layout_mode = 2
 tooltip_text = "Improve your detection time"
 text = "2"
-icon = ExtResource("2_xqqe5")
+icon = ExtResource("3_q5cce")
 
 [node name="PanelContainer4" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HFlowContainer"]
-offset_top = 66.0
-offset_right = 72.0
-offset_bottom = 128.0
+layout_mode = 2
 tooltip_text = "Gain more body parts per grave."
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HFlowContainer/PanelContainer4"]
-offset_right = 72.0
-offset_bottom = 62.0
+layout_mode = 2
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HFlowContainer/PanelContainer4/VBoxContainer"]
-offset_right = 72.0
-offset_bottom = 26.0
+layout_mode = 2
 text = "Luck"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HFlowContainer/PanelContainer4/VBoxContainer"]
-offset_top = 30.0
-offset_right = 72.0
-offset_bottom = 62.0
+layout_mode = 2
 
 [node name="Panel" type="Panel" parent="PanelContainer/MarginContainer/VBoxContainer/HFlowContainer/PanelContainer4/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(32, 32)
-offset_right = 32.0
-offset_bottom = 32.0
+layout_mode = 2
 
 [node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="PanelContainer/MarginContainer/VBoxContainer/HFlowContainer/PanelContainer4/VBoxContainer/HBoxContainer/Panel"]
 position = Vector2(16, 14.3333)
@@ -310,38 +272,28 @@ frames = SubResource("SpriteFrames_8kmrn")
 playing = true
 
 [node name="LuckButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HFlowContainer/PanelContainer4/VBoxContainer/HBoxContainer"]
-offset_left = 36.0
-offset_right = 72.0
-offset_bottom = 32.0
+layout_mode = 2
 tooltip_text = "Gain more body parts per grave."
 text = "2"
-icon = ExtResource("2_xqqe5")
+icon = ExtResource("3_q5cce")
 
 [node name="PanelContainer5" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HFlowContainer"]
-offset_left = 76.0
-offset_top = 66.0
-offset_right = 173.0
-offset_bottom = 128.0
+layout_mode = 2
 tooltip_text = "Buy a friend (Ends Game)"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HFlowContainer/PanelContainer5"]
-offset_right = 97.0
-offset_bottom = 62.0
+layout_mode = 2
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HFlowContainer/PanelContainer5/VBoxContainer"]
-offset_right = 97.0
-offset_bottom = 26.0
+layout_mode = 2
 text = "Buy a Friend"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HFlowContainer/PanelContainer5/VBoxContainer"]
-offset_top = 30.0
-offset_right = 97.0
-offset_bottom = 62.0
+layout_mode = 2
 
 [node name="Panel" type="Panel" parent="PanelContainer/MarginContainer/VBoxContainer/HFlowContainer/PanelContainer5/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(32, 32)
-offset_right = 32.0
-offset_bottom = 32.0
+layout_mode = 2
 
 [node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="PanelContainer/MarginContainer/VBoxContainer/HFlowContainer/PanelContainer5/VBoxContainer/HBoxContainer/Panel"]
 position = Vector2(16, 14.3333)
@@ -349,14 +301,13 @@ frames = SubResource("SpriteFrames_8kmrn")
 playing = true
 
 [node name="FriendButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HFlowContainer/PanelContainer5/VBoxContainer/HBoxContainer"]
-offset_left = 36.0
-offset_right = 90.0
-offset_bottom = 32.0
+layout_mode = 2
 tooltip_text = "Buy a friend (Ends Game)"
 text = "100"
-icon = ExtResource("2_xqqe5")
+icon = ExtResource("3_q5cce")
 
 [node name="ContinueButton" type="Button" parent="."]
+layout_mode = 0
 offset_left = 296.0
 offset_top = 175.667
 offset_right = 375.0
@@ -365,6 +316,7 @@ text = "Continue"
 
 [node name="OrgansText" type="RichTextLabel" parent="."]
 custom_minimum_size = Vector2(200, 50)
+layout_mode = 0
 offset_left = 7.66667
 offset_top = 184.667
 offset_right = 207.667
@@ -372,12 +324,13 @@ offset_bottom = 234.667
 text = "Parts:       999"
 
 [node name="TextureRect" type="TextureRect" parent="OrgansText"]
+layout_mode = 0
 offset_left = 48.6667
 offset_top = 3.33333
 offset_right = 88.6667
 offset_bottom = 43.3333
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_xqqe5")
+texture = ExtResource("3_q5cce")
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HFlowContainer/PanelContainer/VBoxContainer/HBoxContainer/DigButton" to="." method="_on_dig_button_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HFlowContainer/PanelContainer2/VBoxContainer/HBoxContainer/SpeedButton" to="." method="_on_speed_button_pressed"]

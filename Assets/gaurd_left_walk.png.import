@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddoxj2g873586"
-path="res://.godot/imported/tileset.png-06023f60f54ec986b75003a8d422612f.ctex"
+uid="uid://cn1xbiv0g4tep"
+path="res://.godot/imported/gaurd_left_walk.png-c7540e03dea629ebf4f4d26888df9a46.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/tileset.png"
-dest_files=["res://.godot/imported/tileset.png-06023f60f54ec986b75003a8d422612f.ctex"]
+source_file="res://Assets/gaurd_left_walk.png"
+dest_files=["res://.godot/imported/gaurd_left_walk.png-c7540e03dea629ebf4f4d26888df9a46.ctex"]
 
 [params]
 

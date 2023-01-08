@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddoxj2g873586"
-path="res://.godot/imported/tileset.png-06023f60f54ec986b75003a8d422612f.ctex"
+uid="uid://cort1v80chd0s"
+path="res://.godot/imported/vertical_grave_somedug.png-64f14349e6641a27925abd2989697d09.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/tileset.png"
-dest_files=["res://.godot/imported/tileset.png-06023f60f54ec986b75003a8d422612f.ctex"]
+source_file="res://Assets/vertical_grave_somedug.png"
+dest_files=["res://.godot/imported/vertical_grave_somedug.png-64f14349e6641a27925abd2989697d09.ctex"]
 
 [params]
 

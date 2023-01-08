@@ -1,25 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://dxcelqtv06yev"]
+[gd_scene load_steps=3 format=3 uid="uid://dxcelqtv06yev"]
 
-[ext_resource type="Texture2D" uid="uid://dpfkhpd6gngak" path="res://Assets/headstone_1.png" id="1_1fadi"]
+[ext_resource type="Texture2D" uid="uid://dxyedmtft71ji" path="res://Assets/headstone_1.png" id="1_1fadi"]
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_xugwl"]
-polygon = PackedVector2Array(-6, -6, -4, -8, 4, -8, 6, -6, 6, 8, -6, 8)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4oq5k"]
-size = Vector2(12, 14)
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_m8t1b"]
+polygon = PackedVector2Array(-8, -4, -5, -8, 5, -8, 8, -3, 8, 8, -8, 8)
 
 [node name="Tombstone" type="StaticBody2D"]
 collision_layer = 33
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-occluder = SubResource("OccluderPolygon2D_xugwl")
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_1fadi")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(0, 1)
-shape = SubResource("RectangleShape2D_4oq5k")
-
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_m8t1b")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-8, 8, 8, 8, 8, -3, 5, -8, -5, -8, -8, -4, -8, 4)

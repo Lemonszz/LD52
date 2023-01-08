@@ -1,0 +1,38 @@
+[gd_scene load_steps=10 format=3 uid="uid://dytwu6mdv5e77"]
+
+[ext_resource type="Script" path="res://Script/Grave.gd" id="1_iuu4i"]
+[ext_resource type="Texture2D" uid="uid://cort1v80chd0s" path="res://Assets/vertical_grave_somedug.png" id="2_7t5oi"]
+[ext_resource type="Texture2D" uid="uid://bmxg6qd0r1a1j" path="res://Assets/vertical_grave_dug.png" id="3_lhoxi"]
+[ext_resource type="Material" uid="uid://d00dfla4kvftv" path="res://Assets/shader/OutlineMaterial.tres" id="4_qiq6r"]
+[ext_resource type="Texture2D" uid="uid://cgndj0nyo7wk8" path="res://Assets/vertical_grave_undug.png" id="5_wlt6t"]
+[ext_resource type="Script" path="res://Script/UniqueMaterialSprite.gd" id="6_w3os8"]
+[ext_resource type="PackedScene" uid="uid://8uetl75pcexb" path="res://Scene/ParticlesGrave.tscn" id="7_amnha"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dio64"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7m3us"]
+radius = 11.0
+height = 42.0
+
+[node name="GraveVertical" type="StaticBody2D"]
+script = ExtResource("1_iuu4i")
+inProgressTexture = ExtResource("2_7t5oi")
+doneTexture = ExtResource("3_lhoxi")
+interactAreaPath = NodePath("Area2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_dio64")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = ExtResource("4_qiq6r")
+texture = ExtResource("5_wlt6t")
+script = ExtResource("6_w3os8")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_7m3us")
+
+[node name="GPUParticles2D" parent="." instance=ExtResource("7_amnha")]

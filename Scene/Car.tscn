@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://bxrne13taw52g"]
+[gd_scene load_steps=17 format=3 uid="uid://bxrne13taw52g"]
 
 [ext_resource type="Script" path="res://Script/Car.gd" id="1_lh0cl"]
-[ext_resource type="Material" uid="uid://d00dfla4kvftv" path="res://Assets/shader/OutlineMaterial.tres" id="2_mvulg"]
-[ext_resource type="Texture2D" uid="uid://c6s1a4ifdle2k" path="res://Assets/car.png" id="3_l1v05"]
-[ext_resource type="Script" path="res://Script/UniqueMaterialSprite.gd" id="4_an4b4"]
+[ext_resource type="Shader" path="res://Assets/shader/outline.gdshader" id="2_l46br"]
+[ext_resource type="Texture2D" uid="uid://bt1onlfcos408" path="res://Assets/car_idle.png" id="3_8utiu"]
+[ext_resource type="Texture2D" uid="uid://dr5muh0rw4skl" path="res://Assets/car_driving.png" id="4_1b2sb"]
+[ext_resource type="PackedScene" uid="uid://8uetl75pcexb" path="res://Scene/ParticlesGrave.tscn" id="5_7rbkm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i5hjq"]
 height = 58.0
@@ -15,58 +16,19 @@ height = 74.0
 [sub_resource type="Animation" id="Animation_7iyv1"]
 resource_name = "Leave"
 length = 2.0
-tracks/0/type = "value"
+tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 2),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(500, 0)]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(2),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
 "method": &"transition"
 }]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("ColorRect:color")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1.7),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_rwhr1"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -75,6 +37,33 @@ tracks/1/path = NodePath("ColorRect:color")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-500, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_rwhr1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -87,14 +76,50 @@ _data = {
 "RESET": SubResource("Animation_rwhr1")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jax3n"]
+shader = ExtResource("2_l46br")
+shader_parameter/enabled = false
+shader_parameter/intensity = 48
+shader_parameter/precision = 0.02
+shader_parameter/flipColors = null
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_color_2 = Color(1, 1, 1, 1)
+shader_parameter/use_outline_uv = null
+shader_parameter/useTexture = null
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hetww"]
+atlas = ExtResource("3_8utiu")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ierg6"]
+atlas = ExtResource("3_8utiu")
+region = Rect2(64, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdlcn"]
+atlas = ExtResource("4_1b2sb")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d28um"]
+atlas = ExtResource("4_1b2sb")
+region = Rect2(64, 0, 64, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_06qr6"]
+animations = [{
+"frames": [SubResource("AtlasTexture_hetww"), SubResource("AtlasTexture_ierg6")],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [SubResource("AtlasTexture_fdlcn"), SubResource("AtlasTexture_d28um")],
+"loop": true,
+"name": &"drive",
+"speed": 5.0
+}]
+
 [node name="Car" type="StaticBody2D"]
 script = ExtResource("1_lh0cl")
 interactAreaPath = NodePath("Area2D")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-material = ExtResource("2_mvulg")
-texture = ExtResource("3_l1v05")
-script = ExtResource("4_an4b4")
+spritePath = NodePath("AnimatedSprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
@@ -115,6 +140,7 @@ libraries = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="."]
+z_index = 900
 offset_left = -916.0
 offset_top = -724.0
 offset_right = -876.0
@@ -123,3 +149,11 @@ scale = Vector2(40, 40)
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
 metadata/_edit_lock_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_jax3n")
+scale = Vector2(-1, 1)
+frames = SubResource("SpriteFrames_06qr6")
+playing = true
+
+[node name="GPUParticles2D" parent="AnimatedSprite2D" instance=ExtResource("5_7rbkm")]
