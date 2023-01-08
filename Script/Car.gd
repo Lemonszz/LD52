@@ -37,6 +37,7 @@ func doInteraction(doEffects = true):
 	player.state = Player.State.DEAD;
 	sprite.animation = "drive";
 	Global.hideTips = true;
+	$AnimatedSprite2D/FlashLight.visible = true;
 
 
 func canInteract():

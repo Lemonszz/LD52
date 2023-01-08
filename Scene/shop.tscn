@@ -399,6 +399,7 @@ texture = ExtResource("3_q5cce")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_h1aef")
+volume_db = -15.0
 autoplay = true
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HFlowContainer/PanelContainer/VBoxContainer/HBoxContainer/DigButton" to="." method="_on_dig_button_pressed"]
