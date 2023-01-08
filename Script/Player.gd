@@ -96,7 +96,7 @@ func updateLightDetection(delta : float):
 	var li = Global.isInLight(self);
 	if(li):
 		var dist = position.distance_to(li.global_position);
-		var change = (128 / dist);
+		var change = (128 / dist) / 1.5;
 		
 		lightTime += change * delta;
 	else:
