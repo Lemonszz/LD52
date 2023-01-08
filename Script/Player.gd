@@ -138,3 +138,9 @@ func updateAnimation():
 	if(sprite.animation != anim):
 		sprite.animation = anim;
 	
+
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	if(sprite.animation.begins_with("dig")):
+		$DigSounds.play();
+	pass # Replace with function body.

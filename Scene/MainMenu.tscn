@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://pjdxplho4dmb"]
+[gd_scene load_steps=6 format=3 uid="uid://pjdxplho4dmb"]
 
 [ext_resource type="Script" path="res://Script/MainMenu.gd" id="1_60iww"]
+[ext_resource type="Theme" uid="uid://chgouimj4kr54" path="res://Assets/theme.tres" id="1_cigwx"]
 [ext_resource type="PackedScene" uid="uid://8uetl75pcexb" path="res://Scene/ParticlesGrave.tscn" id="2_vsrd8"]
+[ext_resource type="Texture2D" uid="uid://bd8kmqadhcdp7" path="res://Assets/title.png" id="3_00wky"]
+[ext_resource type="AudioStream" uid="uid://dk4m0dqx7aqir" path="res://Assets/sound/DocShop.ogg" id="5_r2y2q"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -10,61 +13,98 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(3, 3)
+theme = ExtResource("1_cigwx")
 script = ExtResource("1_60iww")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1150.0
+offset_bottom = 647.0
+texture = ExtResource("3_00wky")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 custom_minimum_size = Vector2(200, 0)
-offset_left = 6.33333
-offset_top = -2.0
-offset_right = 206.333
-offset_bottom = 216.0
+offset_left = 616.0
+offset_top = 294.0
+offset_right = 816.0
+offset_bottom = 512.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
-offset_right = 200.0
-offset_bottom = 218.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 198.0
+offset_bottom = 216.0
 
 [node name="ReferenceRect" type="ReferenceRect" parent="PanelContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 10)
-offset_right = 200.0
+offset_right = 196.0
 offset_bottom = 10.0
 
 [node name="Play" type="Button" parent="PanelContainer/VBoxContainer"]
 offset_top = 14.0
-offset_right = 200.0
-offset_bottom = 45.0
+offset_right = 196.0
+offset_bottom = 46.0
 text = "Play"
 
 [node name="ReferenceRect2" type="ReferenceRect" parent="PanelContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 15)
-offset_top = 49.0
-offset_right = 200.0
-offset_bottom = 64.0
+offset_top = 50.0
+offset_right = 196.0
+offset_bottom = 65.0
 
-[node name="GameSounds" type="CheckButton" parent="PanelContainer/VBoxContainer"]
-offset_top = 68.0
-offset_right = 200.0
-offset_bottom = 99.0
-button_pressed = true
-text = "Game Sounds"
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+offset_top = 69.0
+offset_right = 196.0
+offset_bottom = 96.0
+alignment = 1
 
-[node name="Music" type="CheckButton" parent="PanelContainer/VBoxContainer"]
-offset_top = 103.0
-offset_right = 200.0
-offset_bottom = 134.0
-button_pressed = true
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+offset_left = 11.0
+offset_right = 56.0
+offset_bottom = 27.0
+text = "Sound"
+
+[node name="SoundSlider" type="HSlider" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(125, 0)
+offset_left = 60.0
+offset_top = 5.0
+offset_right = 185.0
+offset_bottom = 21.0
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+offset_top = 100.0
+offset_right = 196.0
+offset_bottom = 127.0
+alignment = 1
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer2"]
+offset_left = 10.0
+offset_right = 56.0
+offset_bottom = 27.0
 text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="PanelContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(125, 0)
+offset_left = 60.0
+offset_top = 5.0
+offset_right = 185.0
+offset_bottom = 21.0
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
 
 [node name="ReferenceRect3" type="ReferenceRect" parent="PanelContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 30)
-offset_top = 138.0
-offset_right = 200.0
-offset_bottom = 168.0
+offset_top = 131.0
+offset_right = 196.0
+offset_bottom = 161.0
 
 [node name="Quit" type="Button" parent="PanelContainer/VBoxContainer"]
-offset_top = 172.0
-offset_right = 200.0
-offset_bottom = 203.0
+offset_top = 165.0
+offset_right = 196.0
+offset_bottom = 197.0
 text = "Quit"
 
 [node name="GPUParticles2D" parent="." instance=ExtResource("2_vsrd8")]
@@ -72,7 +112,12 @@ position = Vector2(273.667, 118.667)
 emitting = true
 amount = 1
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_r2y2q")
+autoplay = true
+bus = &"Music"
+
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/GameSounds" to="." method="_on_game_sounds_pressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/Music" to="." method="_on_music_pressed"]
+[connection signal="value_changed" from="PanelContainer/VBoxContainer/HBoxContainer/SoundSlider" to="." method="_on_sound_slider_value_changed"]
+[connection signal="value_changed" from="PanelContainer/VBoxContainer/HBoxContainer2/MusicSlider" to="." method="_on_music_slider_value_changed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

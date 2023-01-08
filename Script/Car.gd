@@ -36,6 +36,7 @@ func doInteraction(doEffects = true):
 	leaving = true;
 	player.state = Player.State.DEAD;
 	sprite.animation = "drive";
+	Global.hideTips = true;
 
 
 func canInteract():

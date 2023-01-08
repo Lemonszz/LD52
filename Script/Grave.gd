@@ -63,6 +63,7 @@ func eraseSelf():
 		Global.ACTIVE_INTERACTABLES.erase(self);
 
 func doInteraction(doEffects = true):
+	Global.hideTips = true;
 	if(digging):
 		interuptDigging();
 		player.state = Player.State.IDLE;

@@ -1,10 +1,13 @@
-[gd_scene load_steps=17 format=3 uid="uid://bxrne13taw52g"]
+[gd_scene load_steps=22 format=3 uid="uid://bxrne13taw52g"]
 
 [ext_resource type="Script" path="res://Script/Car.gd" id="1_lh0cl"]
 [ext_resource type="Shader" path="res://Assets/shader/outline.gdshader" id="2_l46br"]
 [ext_resource type="Texture2D" uid="uid://bt1onlfcos408" path="res://Assets/car_idle.png" id="3_8utiu"]
 [ext_resource type="Texture2D" uid="uid://dr5muh0rw4skl" path="res://Assets/car_driving.png" id="4_1b2sb"]
 [ext_resource type="PackedScene" uid="uid://8uetl75pcexb" path="res://Scene/ParticlesGrave.tscn" id="5_7rbkm"]
+[ext_resource type="Script" path="res://Script/HideTips.gd" id="6_b6cfa"]
+[ext_resource type="FontFile" uid="uid://drvlsw0qhmh3w" path="res://Assets/PermanentMarker-Regular.ttf" id="7_pj4o3"]
+[ext_resource type="Theme" uid="uid://chgouimj4kr54" path="res://Assets/theme.tres" id="7_wu06b"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i5hjq"]
 height = 58.0
@@ -116,6 +119,14 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Curve" id="Curve_jj8e5"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="LabelSettings" id="LabelSettings_4hoga"]
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
 [node name="Car" type="StaticBody2D"]
 script = ExtResource("1_lh0cl")
 interactAreaPath = NodePath("Area2D")
@@ -157,3 +168,25 @@ frames = SubResource("SpriteFrames_06qr6")
 playing = true
 
 [node name="GPUParticles2D" parent="AnimatedSprite2D" instance=ExtResource("5_7rbkm")]
+
+[node name="Line2D" type="Line2D" parent="."]
+z_index = 4096
+points = PackedVector2Array(6, -8, 0, 39)
+width = 3.0
+width_curve = SubResource("Curve_jj8e5")
+default_color = Color(0.0196078, 0.0196078, 0.0313726, 1)
+script = ExtResource("6_b6cfa")
+
+[node name="ColorRect" type="PanelContainer" parent="Line2D"]
+offset_left = -117.0
+offset_top = 38.0
+offset_right = 121.0
+offset_bottom = 91.0
+theme = ExtResource("7_wu06b")
+
+[node name="Label" type="Label" parent="Line2D/ColorRect"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_pj4o3")
+text = "Escape in your car 
+when you've harvested enough"
+label_settings = SubResource("LabelSettings_4hoga")

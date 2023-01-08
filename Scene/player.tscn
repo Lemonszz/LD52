@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://beumpr7k5r584"]
+[gd_scene load_steps=87 format=3 uid="uid://beumpr7k5r584"]
 
 [ext_resource type="Script" path="res://Script/Player.gd" id="1_u81lr"]
 [ext_resource type="Texture2D" uid="uid://3tmsf4timyg6" path="res://Assets/guy_front_dig.png" id="2_2mmdu"]
@@ -13,6 +13,14 @@
 [ext_resource type="Texture2D" uid="uid://skerfhgas4u4" path="res://Assets/guy_back_walk.png" id="7_0dcst"]
 [ext_resource type="Texture2D" uid="uid://tb7r6dp5ygbv" path="res://Assets/guy_left_walk.png" id="7_k1q4y"]
 [ext_resource type="Texture2D" uid="uid://cg5de8i1yvrg8" path="res://Assets/guy_right_walk.png" id="8_cwm5d"]
+[ext_resource type="AudioStream" uid="uid://b1qs8fqx8t4cy" path="res://Assets/sound/dig1.ogg" id="14_x04a7"]
+[ext_resource type="AudioStream" uid="uid://rrngi6wrfkpu" path="res://Assets/sound/dig2.ogg" id="15_t0ctm"]
+[ext_resource type="AudioStream" uid="uid://cvnhib41jby3h" path="res://Assets/sound/dig3.ogg" id="16_188s6"]
+[ext_resource type="AudioStream" uid="uid://b40e8jsdfcijm" path="res://Assets/sound/dig4.ogg" id="17_by32s"]
+[ext_resource type="AudioStream" uid="uid://djrihkiywhut5" path="res://Assets/sound/dig5.ogg" id="18_2bfbg"]
+[ext_resource type="AudioStream" uid="uid://d2te8a7vn01a2" path="res://Assets/sound/dig6.ogg" id="19_qgduu"]
+[ext_resource type="AudioStream" uid="uid://0htwrfrxvqqm" path="res://Assets/sound/dig7.ogg" id="20_m0bhh"]
+[ext_resource type="AudioStream" uid="uid://bxcknmb8dxd2y" path="res://Assets/sound/dig8.ogg" id="21_i28bb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gweky"]
 atlas = ExtResource("2_2mmdu")
@@ -329,6 +337,25 @@ animations = [{
 radius = 7.0
 height = 20.0
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_y0yuj"]
+streams_count = 8
+stream_0/stream = ExtResource("14_x04a7")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("15_t0ctm")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("16_188s6")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("17_by32s")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("18_2bfbg")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("19_qgduu")
+stream_5/weight = 1.0
+stream_6/stream = ExtResource("20_m0bhh")
+stream_6/weight = 1.0
+stream_7/stream = ExtResource("21_i28bb")
+stream_7/weight = 1.0
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 131
 script = ExtResource("1_u81lr")
@@ -353,3 +380,9 @@ collide_with_areas = true
 [node name="LightCast" type="RayCast2D" parent="."]
 collision_mask = 32
 collide_with_areas = true
+
+[node name="DigSounds" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_y0yuj")
+bus = &"Sound"
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

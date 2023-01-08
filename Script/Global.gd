@@ -14,8 +14,10 @@ var usedLevels := [
 var ACTIVE_LIGHTS := [];
 var ACTIVE_INTERACTABLES := [];
 
-var MUSIC := true;
-var SOUND := true;
+var MUSIC := 0.5;
+var SOUND := 1.0;
+
+var hideTips = false;
 
 var UI : UI;
 var OBJECTS : Node2D;

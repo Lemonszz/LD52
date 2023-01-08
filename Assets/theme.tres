@@ -1,0 +1,16 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://chgouimj4kr54"]
+
+[ext_resource type="Texture2D" uid="uid://dsiiyfkr8xdfm" path="res://Assets/panel.png" id="1_5wq70"]
+[ext_resource type="FontFile" uid="uid://drvlsw0qhmh3w" path="res://Assets/PermanentMarker-Regular.ttf" id="1_apefg"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gh6yv"]
+texture = ExtResource("1_5wq70")
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 2.0
+margin_bottom = 2.0
+region_rect = Rect2(0, 0, 16, 16)
+
+[resource]
+default_font = ExtResource("1_apefg")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_gh6yv")
