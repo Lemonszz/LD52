@@ -11,6 +11,9 @@ func _ready() -> void:
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear_to_db(Global.MUSIC));
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Sound"), linear_to_db(Global.SOUND));
 	
+	$PanelContainer/VBoxContainer/Play.grab_focus();
+	
+	
 	create_tween().tween_property($PanelContainer, "position:x", 616, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK);
 
 func _on_play_pressed() -> void:

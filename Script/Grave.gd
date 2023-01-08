@@ -76,7 +76,6 @@ func canInteract():
 	return digProgress < 1.0;
 
 func onEnterInteractArea(body : Node):
-	print("Y")
 	if(body is Player):
 		inArea = true;
 		player = body;
