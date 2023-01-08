@@ -1,10 +1,13 @@
-[gd_resource type="TileSet" load_steps=17 format=3 uid="uid://csav0aw13cm71"]
+[gd_resource type="TileSet" load_steps=19 format=3 uid="uid://csav0aw13cm71"]
 
 [ext_resource type="Texture2D" uid="uid://ddoxj2g873586" path="res://Assets/tileset.png" id="1_mr683"]
 [ext_resource type="PackedScene" uid="uid://beumpr7k5r584" path="res://Scene/player.tscn" id="2_h8vid"]
 [ext_resource type="PackedScene" uid="uid://c2ta2j2d5odfy" path="res://Scene/Tombstone2.tscn" id="3_y5k3e"]
 [ext_resource type="PackedScene" uid="uid://ck8pgfovfbbx" path="res://Scene/Tombstone3.tscn" id="4_cfgaj"]
 [ext_resource type="PackedScene" uid="uid://dxcelqtv06yev" path="res://Scene/Tombstone.tscn" id="5_mueuy"]
+[ext_resource type="PackedScene" uid="uid://blqufm53iw2c6" path="res://Scene/tree.tscn" id="6_ro6an"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_408pi"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_85dij"]
 polygon = PackedVector2Array(-1, 0, 8, 0, 8, 2, 2, 2, 1.5, 8, -1, 8)
@@ -301,6 +304,7 @@ scenes/1/scene = ExtResource("2_h8vid")
 scenes/2/scene = ExtResource("3_y5k3e")
 scenes/3/scene = ExtResource("4_cfgaj")
 scenes/4/scene = ExtResource("5_mueuy")
+scenes/5/scene = ExtResource("6_ro6an")
 
 [resource]
 occlusion_layer_0/light_mask = 1
@@ -311,3 +315,4 @@ terrain_set_0/terrain_0/name = "GrassDirt"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/2 = SubResource("TileSetScenesCollectionSource_kx8dr")
 sources/1 = SubResource("TileSetAtlasSource_tp2p1")
+sources/0 = SubResource("TileSetAtlasSource_408pi")

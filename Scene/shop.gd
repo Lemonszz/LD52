@@ -72,3 +72,10 @@ func getLuckCost():
 func _on_continue_button_pressed() -> void:
 	Global.levelStartOrgans = Global.organs 
 	Global.nextLevel();
+
+
+func _on_friend_button_pressed() -> void:
+	if(Global.organs >= 100):
+		Global.organs -= 100;
+		get_tree().change_scene_to_packed(load("res://Scene/EndScreen.tscn"))
+		updateCosts();
