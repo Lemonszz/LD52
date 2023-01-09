@@ -46,6 +46,7 @@ func finishDigging():
 	player.state = Player.State.IDLE;
 	digProgress = 1.0;
 	sprite.texture = doneTexture;
+	player.playDugSound();
 	
 	var min = 1.0;
 	var max = 3 + Global.luck;

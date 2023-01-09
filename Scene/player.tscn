@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=3 uid="uid://beumpr7k5r584"]
+[gd_scene load_steps=108 format=3 uid="uid://beumpr7k5r584"]
 
 [ext_resource type="Script" path="res://Script/Player.gd" id="1_u81lr"]
 [ext_resource type="Texture2D" uid="uid://3tmsf4timyg6" path="res://Assets/guy_front_dig.png" id="2_2mmdu"]
@@ -21,6 +21,23 @@
 [ext_resource type="AudioStream" uid="uid://d2te8a7vn01a2" path="res://Assets/sound/dig6.ogg" id="19_qgduu"]
 [ext_resource type="AudioStream" uid="uid://0htwrfrxvqqm" path="res://Assets/sound/dig7.ogg" id="20_m0bhh"]
 [ext_resource type="AudioStream" uid="uid://bxcknmb8dxd2y" path="res://Assets/sound/dig8.ogg" id="21_i28bb"]
+[ext_resource type="AudioStream" uid="uid://dqloqkvurh8kp" path="res://Assets/sound/uh_oh.ogg" id="22_i6efl"]
+[ext_resource type="AudioStream" uid="uid://cl3bcvqkx6dss" path="res://Assets/sound/aw_heck.ogg" id="23_icwlg"]
+[ext_resource type="AudioStream" uid="uid://b62vhhcp1d2p3" path="res://Assets/sound/pick_up_item.ogg" id="23_r4v5y"]
+[ext_resource type="AudioStream" uid="uid://83opxjod54nj" path="res://Assets/sound/dag_nabbit.ogg" id="24_32p58"]
+[ext_resource type="AudioStream" uid="uid://c70w4kwxk5ddp" path="res://Assets/sound/leaving_empty_1.ogg" id="24_b716d"]
+[ext_resource type="AudioStream" uid="uid://bbrc4riprbhi1" path="res://Assets/sound/leaving_with_organs_1.ogg" id="24_pf66l"]
+[ext_resource type="AudioStream" uid="uid://cn5ydikw8idsk" path="res://Assets/sound/leaving_empty_2.ogg" id="25_5mx3p"]
+[ext_resource type="AudioStream" uid="uid://dij2teycg3h2m" path="res://Assets/sound/leaving_with_organs_2.ogg" id="25_ieivk"]
+[ext_resource type="AudioStream" uid="uid://cge5dvicn08cg" path="res://Assets/sound/start.ogg" id="26_e31hb"]
+[ext_resource type="AudioStream" uid="uid://3n8gnxetv5if" path="res://Assets/sound/leaving_empty_3.ogg" id="26_gfof8"]
+[ext_resource type="AudioStream" uid="uid://baw5taakbdu5t" path="res://Assets/sound/leaving_with_organs_3.ogg" id="26_oihd0"]
+[ext_resource type="AudioStream" uid="uid://do2ow2hr2ku36" path="res://Assets/sound/dig_grave_1.ogg" id="33_e30cx"]
+[ext_resource type="AudioStream" uid="uid://dpwdhrwne7cyt" path="res://Assets/sound/dig_grave_2.ogg" id="34_2ib5k"]
+[ext_resource type="AudioStream" uid="uid://bqjnte0g4f60u" path="res://Assets/sound/dig_grave_3.ogg" id="35_tdjk1"]
+[ext_resource type="AudioStream" uid="uid://b58131e2qim31" path="res://Assets/sound/dig_grave_4.ogg" id="36_xbum4"]
+[ext_resource type="AudioStream" uid="uid://b288jhvjg6ba5" path="res://Assets/sound/dig_grave_5.ogg" id="37_kukwp"]
+[ext_resource type="AudioStream" uid="uid://bgxkvf1c36c3h" path="res://Assets/sound/dig_grave_6.ogg" id="38_csqlh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gweky"]
 atlas = ExtResource("2_2mmdu")
@@ -356,6 +373,48 @@ stream_6/weight = 1.0
 stream_7/stream = ExtResource("21_i28bb")
 stream_7/weight = 1.0
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_vd5bw"]
+streams_count = 3
+stream_0/stream = ExtResource("22_i6efl")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("23_icwlg")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("24_32p58")
+stream_2/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_3wq2q"]
+streams_count = 3
+stream_0/stream = ExtResource("24_b716d")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("25_5mx3p")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("26_gfof8")
+stream_2/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_rr2g3"]
+streams_count = 3
+stream_0/stream = ExtResource("24_pf66l")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("25_ieivk")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("26_oihd0")
+stream_2/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_gsp6b"]
+streams_count = 6
+stream_0/stream = ExtResource("33_e30cx")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("34_2ib5k")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("35_tdjk1")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("36_xbum4")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("37_kukwp")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("38_csqlh")
+stream_5/weight = 1.0
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 131
 script = ExtResource("1_u81lr")
@@ -384,5 +443,26 @@ collide_with_areas = true
 [node name="DigSounds" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_y0yuj")
 bus = &"Sound"
+
+[node name="Caught" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_vd5bw")
+bus = &"Sound"
+
+[node name="Pickup" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("23_r4v5y")
+bus = &"Sound"
+
+[node name="Start" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("26_e31hb")
+bus = &"Sound"
+
+[node name="LeaveEmpty" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_3wq2q")
+
+[node name="LeaveFull" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_rr2g3")
+
+[node name="DigGrave" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_gsp6b")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

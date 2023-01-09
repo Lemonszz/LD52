@@ -26,9 +26,10 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Ld 52"
+config/name="Gunther Needs a Friend"
 run/main_scene="res://Scene/MainMenu.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
+boot_splash/image="res://Assets/90slklogoCRT.png"
 config/icon="res://icon.svg"
 
 [autoload]

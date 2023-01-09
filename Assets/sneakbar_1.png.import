@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhfywqsmilm46"
-path="res://.godot/imported/organ_1.png-413c3dbb4765022ad3479f8e10760be8.ctex"
+uid="uid://6ab15t2yw3yv"
+path="res://.godot/imported/sneakbar_1.png-c92ccf354bd83333b77e406d4e6308ca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/organ_1.png"
-dest_files=["res://.godot/imported/organ_1.png-413c3dbb4765022ad3479f8e10760be8.ctex"]
+source_file="res://Assets/sneakbar_1.png"
+dest_files=["res://.godot/imported/sneakbar_1.png-c92ccf354bd83333b77e406d4e6308ca.ctex"]
 
 [params]
 

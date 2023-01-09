@@ -2,9 +2,9 @@ extends Node
 
 var levels := [
 	preload("res://Scene/Level1.tscn"),
-	preload("res://Scene/Level2.tscn"),
 	preload("res://Scene/Level3.tscn"),
 	preload("res://Scene/Level4.tscn"),
+	preload("res://Scene/Level2.tscn")
 ];
 
 var usedLevels := [
@@ -37,6 +37,7 @@ var luckUpgradeCount = 0;
 
 var organs := 0;
 var levelStartOrgans := organs;
+
 
 func getClosestInteractable(player : Player) -> StaticBody2D:
 	var closest = null;

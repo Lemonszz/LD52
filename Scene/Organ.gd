@@ -25,5 +25,6 @@ func _physics_process(delta: float) -> void:
 func onTweenFinish():
 	queue_free();
 	Global.organs += 1;
+	Global.PLAYER.playPickup();
 	pass;	
 	

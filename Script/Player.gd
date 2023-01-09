@@ -28,6 +28,9 @@ var lightTime := 0.0;
 
 func _ready() -> void:
 	Global.PLAYER = self;
+	
+	if(!Global.hideTips):
+		$Start.play();
 
 func get_movement_input():
 	var inputDir := Input.get_vector("move_left", "move_right", "move_up", "move_down");
@@ -104,6 +107,7 @@ func updateLightDetection(delta : float):
 		
 func gameOver():
 	state = State.DEAD
+	$Caught.play();
 	Global.UI.showGameOver();
 
 func listenForInteraction():
@@ -140,3 +144,15 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 	if(sprite.animation.begins_with("dig")):
 		$DigSounds.play();
 	pass # Replace with function body.
+	
+func playPickup():
+	$Pickup.play();
+
+func playLeave():
+	if(Global.organs <= Global.levelStartOrgans):
+		$LeaveEmpty.play();
+	else:
+		$LeaveFull.play();
+		
+func playDugSound():
+	$DigGrave.play();

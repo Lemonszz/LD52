@@ -38,6 +38,7 @@ func doInteraction(doEffects = true):
 	sprite.animation = "drive";
 	Global.hideTips = true;
 	$AnimatedSprite2D/FlashLight.visible = true;
+	player.playLeave();
 
 
 func canInteract():

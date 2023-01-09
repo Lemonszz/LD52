@@ -11,7 +11,7 @@ func _ready() -> void:
 	lightProgress = $PanelContainer/MarginContainer/HBoxContainer/ProgressBar;
 	organCount = $PanelContainer/MarginContainer/HBoxContainer/OrganCount;
 	
-	create_tween().tween_property($PanelContainer, "position:x", -90, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK);
+	create_tween().tween_property($PanelContainer, "position:x", -12, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK);
 	
 	
 func showGameOver():
